@@ -14,10 +14,6 @@ python3 -m http.server 8000
 
 Then open <http://localhost:8000>. Opening `index.html` directly also works, but a server is recommended so that forms and relative paths behave exactly as they will in production.
 
-## React components (`web/`)
-
-The React + TypeScript + Tailwind + shadcn/ui version of the header and hero lives in `web/`. See `web/README.md` for setup. It is optional and doesn't affect the static site.
-
 ## Pages
 
 | File | Purpose |
