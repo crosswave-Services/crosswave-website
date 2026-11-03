@@ -27,7 +27,7 @@ window.CW_CONFIG = {
     /* ---- Google Maps --------------------------------------------------------
        Paste the "src" URL from Google Maps > Share > Embed a map once the
        official address is confirmed. Leave empty to show the placeholder. */
-    mapEmbedUrl: "",
+    mapEmbedUrl: "https://maps.google.com/maps?q=C67%2C%20Ikota%20Shopping%20Complex%2C%20VGC%2C%20Lekki-Ajah%2C%20Lagos&z=16&output=embed",
 
     /* ---- Dedicated service landing pages ------------------------------------
        Set a value to true once the matching page exists in /services/.

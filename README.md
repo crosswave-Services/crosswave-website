@@ -36,18 +36,19 @@ Then open <http://localhost:8000>. Opening `index.html` directly also works, but
 |---|---|
 | `formEndpoint` | Add the URL that should receive enquiries (e.g. a Formspree/Getform/Basin form URL or your own server script). Until set, forms validate and then clearly tell the visitor the message has **not** been sent. |
 | `social` | Add official Facebook, Instagram, LinkedIn and X URLs. Icons stay greyed out and unlinked until provided. |
-| `mapEmbedUrl` | Paste the Google Maps embed `src` URL once the office address is confirmed. |
+| `mapEmbedUrl` | Set to a Google Maps embed for the Ikota Shopping Complex address. Replace it with the embed `src` from Google Maps > Share > Embed a map if you want an exact pin. |
 | `landingPages` | Set a key to `true` once its page exists in `/services/`. All cards, CTAs and menu items for that service then link to the dedicated page automatically. |
 
-### 2. Placeholders in the HTML (search and replace)
+### 2. Contact details
 
-- `[INSERT OFFICIAL BUSINESS ADDRESS]`
-- `[INSERT OFFICIAL PHONE NUMBER]`
-- `[INSERT OFFICIAL BUSINESS EMAIL]`
-- `[INSERT CONFIRMED BUSINESS HOURS]` (contact page)
-- `https://www.YOUR-DOMAIN.com` → the official domain (canonical URLs, Open Graph tags and structured data)
+The official details are on every page (top bar, footer, homepage contact section and `contact.html`) and in the `Organization` structured data in each page's `<head>`:
 
-The contact details appear in the footer of every page, on the homepage contact section and on `contact.html`. When the address and phone number are confirmed, they can also be added to the `Organization` JSON-LD block in each page's `<head>`.
+- Address: C67, Ikota Shopping Complex, VGC, Lekki-Ajah, Lagos State.
+- Phone: 08030564981, 0901 872 1239
+- Email: contact@crosswaveservices.com
+- Website: www.crosswaveservices.com (used for canonical URLs and social-sharing tags)
+
+One placeholder remains: `[INSERT CONFIRMED BUSINESS HOURS]` on `contact.html`.
 
 ## Adding the dedicated service landing pages
 

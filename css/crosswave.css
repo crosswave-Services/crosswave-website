@@ -57,6 +57,11 @@ img.is-broken { visibility: hidden; }
 .quick-link:hover { background: var(--primary) !important; }
 .quick-link:hover i, .quick-link:hover span { color: #FFFFFF !important; }
 
+/* Contact details */
+.contact-link { color: inherit; border-bottom: 1px dotted currentColor; }
+.contact-link:hover { color: var(--secondary); }
+.footer .contact-link { color: #FFFFFF; }
+
 /* Notices */
 .disclaimer { border-left: 5px solid var(--primary); }
 .placeholder-value { font-family: SFMono-Regular, Menlo, Consolas, monospace; font-size: .85em; color: #8a5a00; background: #fff3d6; padding: .05rem .35rem; }
