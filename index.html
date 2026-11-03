@@ -38,17 +38,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://images.unsplash.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
 
-    <!-- Icon font -->
+    <!-- Icon Font Stylesheet -->
+    <link href="lib/fontawesome/css/all.min.css" rel="stylesheet">
     <link href="lib/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet">
 
     <!-- Libraries -->
     <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Site stylesheet -->
+    <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <!-- CROSSWAVE additions (components the template does not include) -->
+    <link href="css/crosswave.css" rel="stylesheet">
 
     <!-- Graceful fallback for any remote photograph that fails to load -->
     <script>
@@ -95,478 +99,580 @@
     -->
 </head>
 <body data-root="">
-    <a class="skip-link" href="#main">Skip to main content</a>
+    <a class="visually-hidden-focusable position-absolute bg-primary text-white p-2" style="z-index:100000" href="#main">Skip to main content</a>
 
-    <!-- Header Start -->
-    <header class="site-header">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-light" aria-label="Main navigation">
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-light d-none d-lg-block">
+        <div class="row align-items-center top-bar">
+            <div class="col-lg-3 col-md-12 text-center text-lg-start">
                 <a href="index.html" class="navbar-brand m-0 p-0" aria-label="CROSSWAVE INTEGRATED SERVICES LIMITED — Home">
                     <img class="brand-logo" src="img/crosswave-logo-640.png" alt="CROSSWAVE logo" width="640" height="108">
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="bi bi-list" aria-hidden="true"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav ms-auto align-items-lg-center">
-                        <a href="index.html" class="nav-item nav-link active" aria-current="page">Home</a>
-                        <a href="about.html" class="nav-item nav-link">About Us</a>
-                        <div class="nav-item dropdown">
-                            <a href="service.html" class="nav-link dropdown-toggle" data-href="service.html" data-bs-toggle="dropdown" role="button" aria-expanded="false">Our Services<i class="bi bi-chevron-down" aria-hidden="true"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="service.html#nafdac-regulatory" data-landing="nafdac-regulatory"><i class="bi bi-clipboard2-data" aria-hidden="true"></i><span>NAFDAC & Regulatory Consultation</span><span class="tag">Core</span></a></li>
-                                <li><a class="dropdown-item" href="service.html#pr-media-communication" data-landing="pr-media-communication"><i class="bi bi-megaphone" aria-hidden="true"></i><span>PR, Media & Communication</span><span class="tag">Core</span></a></li>
-                                <li><a class="dropdown-item" href="service.html#digital-marketing"><i class="bi bi-graph-up-arrow" aria-hidden="true"></i><span>Digital Marketing & Brand Promotion</span></a></li>
-                                <li><a class="dropdown-item" href="service.html#project-management"><i class="bi bi-kanban" aria-hidden="true"></i><span>Project Management & Business Consultancy</span></a></li>
-                                <li><a class="dropdown-item" href="service.html#fashion-modeling-talent" data-landing="fashion-modeling-talent"><i class="bi bi-person-bounding-box" aria-hidden="true"></i><span>Fashion, Modeling & Talent Management</span><span class="tag">Core</span></a></li>
-                                <li><a class="dropdown-item" href="service.html#logistics-haulage"><i class="bi bi-truck" aria-hidden="true"></i><span>Logistics & Haulage Services</span></a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="service.html"><i class="bi bi-grid" aria-hidden="true"></i><span>View all services</span></a></li>
-                            </ul>
-                        </div>
-                        <a href="index.html#approach" class="nav-item nav-link">Our Approach</a>
-                        <a href="contact.html" class="nav-item nav-link">Contact Us</a>
-                    </div>
-                    <a href="booking.html" class="btn btn-primary btn-sm ms-lg-4 mt-3 mt-lg-0">Request a Consultation</a>
+            </div>
+            <div class="col-lg-9 col-md-12 text-end">
+                <div class="h-100 d-inline-flex align-items-center me-4">
+                    <i class="fa fa-map-marker-alt text-primary me-2" aria-hidden="true"></i>
+                    <p class="m-0"><span class="placeholder-value">[INSERT OFFICIAL BUSINESS ADDRESS]</span></p>
                 </div>
-            </nav>
+                <div class="h-100 d-inline-flex align-items-center me-4">
+                    <i class="far fa-envelope-open text-primary me-2" aria-hidden="true"></i>
+                    <p class="m-0"><span class="placeholder-value">[INSERT OFFICIAL BUSINESS EMAIL]</span></p>
+                </div>
+                <div class="h-100 d-inline-flex align-items-center">
+                    <span class="btn btn-sm-square bg-white text-primary me-1 is-pending" data-social="facebook" data-label="CROSSWAVE on Facebook" title="Facebook — official profile coming soon" aria-label="Facebook profile coming soon" role="img"><i class="fab fa-facebook-f" aria-hidden="true"></i></span>
+                    <span class="btn btn-sm-square bg-white text-primary me-1 is-pending" data-social="x" data-label="CROSSWAVE on X (formerly Twitter)" title="X (formerly Twitter) — official profile coming soon" aria-label="X (formerly Twitter) profile coming soon" role="img"><i class="fab fa-twitter" aria-hidden="true"></i></span>
+                    <span class="btn btn-sm-square bg-white text-primary me-1 is-pending" data-social="linkedin" data-label="CROSSWAVE on LinkedIn" title="LinkedIn — official profile coming soon" aria-label="LinkedIn profile coming soon" role="img"><i class="fab fa-linkedin-in" aria-hidden="true"></i></span>
+                    <span class="btn btn-sm-square bg-white text-primary me-1 is-pending" data-social="instagram" data-label="CROSSWAVE on Instagram" title="Instagram — official profile coming soon" aria-label="Instagram profile coming soon" role="img"><i class="fab fa-instagram" aria-hidden="true"></i></span>
+                </div>
+            </div>
         </div>
-    </header>
-    <!-- Header End -->
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid nav-bar bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white p-3 py-lg-0 px-lg-4" aria-label="Main navigation">
+            <a href="index.html" class="navbar-brand d-flex align-items-center m-0 p-0 d-lg-none" aria-label="CROSSWAVE INTEGRATED SERVICES LIMITED — Home">
+                <img class="brand-logo" src="img/crosswave-logo-640.png" alt="CROSSWAVE logo" width="640" height="108">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav me-auto">
+                    <a href="index.html" class="nav-item nav-link active" aria-current="page">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About Us</a>
+                    <div class="nav-item dropdown">
+                        <a href="service.html" class="nav-link dropdown-toggle" data-href="service.html" data-bs-toggle="dropdown" role="button" aria-expanded="false">Our Services</a>
+                        <div class="dropdown-menu fade-up m-0">
+                            <a href="service.html#nafdac-regulatory" data-landing="nafdac-regulatory" class="dropdown-item">NAFDAC & Regulatory Consultation <span class="badge bg-secondary ms-1">Core</span></a>
+                            <a href="service.html#pr-media-communication" data-landing="pr-media-communication" class="dropdown-item">PR, Media & Communication <span class="badge bg-secondary ms-1">Core</span></a>
+                            <a href="service.html#digital-marketing" class="dropdown-item">Digital Marketing & Brand Promotion</a>
+                            <a href="service.html#project-management" class="dropdown-item">Project Management & Business Consultancy</a>
+                            <a href="service.html#fashion-modeling-talent" data-landing="fashion-modeling-talent" class="dropdown-item">Fashion, Modeling & Talent Management <span class="badge bg-secondary ms-1">Core</span></a>
+                            <a href="service.html#logistics-haulage" class="dropdown-item">Logistics & Haulage Services</a>
+                            <a href="service.html" class="dropdown-item fw-medium">View All Services</a>
+                        </div>
+                    </div>
+                    <a href="index.html#approach" class="nav-item nav-link">Our Approach</a>
+                    <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+                </div>
+                <a href="booking.html" class="mt-4 mt-lg-0 me-lg-n4 py-3 px-4 bg-primary d-flex align-items-center nav-cta">
+                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white" style="width: 45px; height: 45px;">
+                        <i class="fa fa-calendar-check text-primary" aria-hidden="true"></i>
+                    </div>
+                    <div class="ms-3">
+                        <p class="mb-1 text-white">Talk to Our Team</p>
+                        <h5 class="m-0 text-secondary">Request a Consultation</h5>
+                    </div>
+                </a>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
 
     <main id="main">
 
-    <!-- Hero Start -->
-    <section class="hero" aria-labelledby="hero-heading">
-        <div class="hero-media"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=75&h=1100" alt="" width="1920" height="1100" decoding="async" fetchpriority="high"></div>
-        <svg class="wave-lines" viewBox="0 0 800 400" fill="none" aria-hidden="true" focusable="false">
-            <path d="M0 260 C 160 180, 320 340, 480 250 S 720 160, 800 210" stroke="#00A3E0" stroke-width="2"/>
-            <path d="M0 290 C 160 210, 320 370, 480 280 S 720 190, 800 240" stroke="#00A3E0" stroke-width="1.5" opacity=".7"/>
-            <path d="M0 320 C 160 240, 320 400, 480 310 S 720 220, 800 270" stroke="#FFFFFF" stroke-width="1" opacity=".5"/>
-            <path d="M0 350 C 160 270, 320 430, 480 340 S 720 250, 800 300" stroke="#FFFFFF" stroke-width="1" opacity=".3"/>
-        </svg>
-        <div class="container">
-            <div class="row align-items-center g-5">
-                <div class="col-lg-7">
-                    <span class="eyebrow animated fadeInUp">Integrated Services. Strategic Solutions.</span>
-                    <h1 id="hero-heading" class="animated fadeInUp">Connecting Businesses. <span>Building Brands.</span> Creating Opportunities.</h1>
-                    <p class="lead animated fadeInUp">CROSSWAVE INTEGRATED SERVICES LIMITED delivers integrated business solutions across regulatory consultation, public relations, media, digital marketing, talent management, project consultancy and logistics. We combine strategic thinking, professional coordination and practical expertise to help businesses, organisations and individuals move forward with confidence.</p>
-                    <div class="d-flex flex-wrap gap-3 mt-4 animated fadeInUp">
-                        <a href="#services" class="btn btn-wave">Explore Our Services <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i></a>
-                        <a href="contact.html" class="btn btn-outline-light">Talk to Our Team</a>
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0 mb-5">
+        <div class="owl-carousel header-carousel position-relative">
+            <div class="owl-carousel-item position-relative">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=75&h=1080" alt="Modern glass corporate office buildings" class="img-fluid" width="1920" height="1080" decoding="async" fetchpriority="high">
+                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0, 0, 0, .55);">
+                    <div class="container">
+                        <div class="row justify-content-start">
+                            <div class="col-10 col-lg-8">
+                                <h5 class="text-white text-uppercase mb-3 animated slideInDown">Integrated Services. Strategic Solutions.</h5>
+                                <h1 class="display-4 text-white animated slideInDown mb-4">Connecting Businesses. Building Brands. Creating Opportunities.</h1>
+                                <p class="fs-5 fw-medium text-white mb-4 pb-2">CROSSWAVE INTEGRATED SERVICES LIMITED delivers integrated business solutions across regulatory consultation, public relations, media, digital marketing, talent management, project consultancy and logistics. We combine strategic thinking, professional coordination and practical expertise to help businesses, organisations and individuals move forward with confidence.</p>
+                                <a href="#services" class="btn btn-primary py-md-3 px-md-5 me-3 mb-2 animated slideInLeft">Explore Our Services</a>
+                                <a href="contact.html" class="btn btn-secondary py-md-3 px-md-5 mb-2 animated slideInRight">Talk to Our Team</a>
+                                <div class="d-flex flex-wrap gap-4 mt-4 hero-values">
+                                    <span class="text-white fw-medium"><i class="fa fa-check text-secondary me-2" aria-hidden="true"></i>Strategic Business Support</span>
+                                    <span class="text-white fw-medium"><i class="fa fa-check text-secondary me-2" aria-hidden="true"></i>Integrated Professional Services</span>
+                                    <span class="text-white fw-medium"><i class="fa fa-check text-secondary me-2" aria-hidden="true"></i>Client-Focused Solutions</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <ul class="hero-values list-unstyled mb-0">
-                        <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i>Strategic Business Support</li>
-                        <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i>Integrated Professional Services</li>
-                        <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i>Client-Focused Solutions</li>
-                    </ul>
                 </div>
-                <div class="col-lg-5 col-xl-4 offset-xl-1 d-none d-lg-block">
-                    <div class="hero-panel animated fadeInUp">
-                        <h2><small>Our Divisions</small>Six integrated service areas, one strategic partner</h2>
-                        <a href="service.html#nafdac-regulatory" data-landing="nafdac-regulatory"><i class="bi bi-clipboard2-data" aria-hidden="true"></i><span>NAFDAC & Regulatory Consultation</span><i class="bi bi-arrow-right" aria-hidden="true"></i></a><a href="service.html#pr-media-communication" data-landing="pr-media-communication"><i class="bi bi-megaphone" aria-hidden="true"></i><span>PR, Media & Communication</span><i class="bi bi-arrow-right" aria-hidden="true"></i></a><a href="service.html#fashion-modeling-talent" data-landing="fashion-modeling-talent"><i class="bi bi-person-bounding-box" aria-hidden="true"></i><span>Fashion, Modeling & Talent Management</span><i class="bi bi-arrow-right" aria-hidden="true"></i></a><div class="divider" role="presentation"></div><a href="service.html#digital-marketing"><i class="bi bi-graph-up-arrow" aria-hidden="true"></i><span>Digital Marketing & Brand Promotion</span><i class="bi bi-arrow-right" aria-hidden="true"></i></a><a href="service.html#project-management"><i class="bi bi-kanban" aria-hidden="true"></i><span>Project Management & Business Consultancy</span><i class="bi bi-arrow-right" aria-hidden="true"></i></a><a href="service.html#logistics-haulage"><i class="bi bi-truck" aria-hidden="true"></i><span>Logistics & Haulage Services</span><i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+            </div>
+            <div class="owl-carousel-item position-relative">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1920&q=75&h=1080" alt="Business professionals collaborating around a table during a strategy session" class="img-fluid" width="1920" height="1080" decoding="async" loading="lazy">
+                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0, 0, 0, .55);">
+                    <div class="container">
+                        <div class="row justify-content-start">
+                            <div class="col-10 col-lg-8">
+                                <h5 class="text-white text-uppercase mb-3 animated slideInDown">Our Divisions</h5>
+                                <h2 class="display-4 text-white animated slideInDown mb-4">Six integrated service areas, one strategic partner</h2>
+                                <div class="row g-2 mb-4 hero-divisions"><div class="col-sm-6"><a class="text-white fw-medium" href="service.html#nafdac-regulatory" data-landing="nafdac-regulatory"><i class="fa fa-clipboard-check text-secondary me-2" aria-hidden="true"></i>NAFDAC & Regulatory Consultation <span class="badge bg-secondary ms-1">Core</span></a></div><div class="col-sm-6"><a class="text-white fw-medium" href="service.html#pr-media-communication" data-landing="pr-media-communication"><i class="fa fa-bullhorn text-secondary me-2" aria-hidden="true"></i>PR, Media & Communication <span class="badge bg-secondary ms-1">Core</span></a></div><div class="col-sm-6"><a class="text-white fw-medium" href="service.html#fashion-modeling-talent" data-landing="fashion-modeling-talent"><i class="fa fa-camera-retro text-secondary me-2" aria-hidden="true"></i>Fashion, Modeling & Talent Management <span class="badge bg-secondary ms-1">Core</span></a></div><div class="col-sm-6"><a class="text-white fw-medium" href="service.html#digital-marketing"><i class="fa fa-chart-line text-secondary me-2" aria-hidden="true"></i>Digital Marketing & Brand Promotion</a></div><div class="col-sm-6"><a class="text-white fw-medium" href="service.html#project-management"><i class="fa fa-project-diagram text-secondary me-2" aria-hidden="true"></i>Project Management & Business Consultancy</a></div><div class="col-sm-6"><a class="text-white fw-medium" href="service.html#logistics-haulage"><i class="fa fa-truck text-secondary me-2" aria-hidden="true"></i>Logistics & Haulage Services</a></div></div>
+                                <a href="#pillars" class="btn btn-primary py-md-3 px-md-5 me-3 mb-2 animated slideInLeft">Explore Our Services</a>
+                                <a href="contact.html" class="btn btn-secondary py-md-3 px-md-5 mb-2 animated slideInRight">Talk to Our Team</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- Hero End -->
+    </div>
+    <!-- Carousel End -->
 
 
-    <!-- Who We Are Start -->
-    <section class="section" id="about" aria-labelledby="about-heading">
+    <!-- About Start -->
+    <div class="container-xxl py-5" id="about">
         <div class="container">
-            <div class="row g-5 align-items-center">
-                <div class="col-lg-6 wow fadeInUp">
-                    <div class="intro-visual">
-                        <div class="media-frame"><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=75&h=990" alt="Business professionals collaborating around a table during a strategy session" width="900" height="990" decoding="async" loading="lazy"></div>
-                        <div class="brand-badge">
-                            <img src="img/crosswave-logo-640.png" alt="CROSSWAVE logo" width="640" height="108" loading="lazy">
-                            <p>Integrated Expertise. Strategic Solutions. Lasting Impact.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 wow fadeInUp">
-                    <span class="eyebrow">Who We Are</span>
-                    <h2 id="about-heading" class="section-title">A Strategic Partner for Business Growth and Development</h2>
-                    <p class="fs-5 text-navy fw-medium">CROSSWAVE INTEGRATED SERVICES LIMITED is a multi-disciplinary services company committed to providing professional solutions that support businesses, brands, organisations and individuals.</p>
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <h6 class="text-secondary text-uppercase">Who We Are</h6>
+                    <h2 class="display-6 mb-4">A Strategic Partner for Business Growth and Development</h2>
+                    <p class="mb-4 fw-medium text-dark">CROSSWAVE INTEGRATED SERVICES LIMITED is a multi-disciplinary services company committed to providing professional solutions that support businesses, brands, organisations and individuals.</p>
                     <p>Our operations span regulatory consultation, corporate communications, public relations, digital marketing, project management, fashion and talent management, and logistics coordination.</p>
                     <p>We understand that every business faces different challenges and opportunities. That is why we take a flexible, solution-driven approach, combining relevant expertise and coordinated services to address our clients' needs.</p>
                     <p class="mb-4">From helping businesses navigate product registration and regulatory requirements to strengthening brand visibility, coordinating talent and supporting business projects, CROSSWAVE is committed to delivering professional and dependable service.</p>
-                    <a href="about.html" class="btn btn-primary">Learn More About Us <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i></a>
+                    <a href="about.html" class="btn btn-primary py-3 px-5">Learn More About Us</a>
+                    <div class="bg-primary d-flex align-items-center p-4 mt-5">
+                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white" style="width: 60px; height: 60px;">
+                            <img src="img/favicon.png" alt="" width="40" height="40" loading="lazy">
+                        </div>
+                        <div class="ms-3">
+                            <p class="fs-5 fw-medium mb-2 text-white">CROSSWAVE</p>
+                            <h3 class="h4 m-0 text-secondary">Integrated Expertise. Strategic Solutions. Lasting Impact.</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 pt-4" style="min-height: 500px;">
+                    <div class="position-relative h-100 wow fadeInUp" data-wow-delay="0.5s">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=700&q=75&h=700" alt="Business professionals collaborating around a table during a strategy session" class="position-absolute img-fluid w-100 h-100 about-img-1" width="700" height="700" decoding="async" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=400&q=75&h=400" alt="Diverse team of professionals working together on laptops" class="position-absolute start-0 bottom-0 img-fluid bg-white pt-2 pe-2 w-50 h-50 about-img-2" width="400" height="400" decoding="async" loading="lazy">
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- Who We Are End -->
+    </div>
+    <!-- About End -->
 
 
     <!-- Core Pillars Start -->
-    <section class="section bg-mist" id="pillars" aria-labelledby="pillars-heading">
+    <div class="container-xxl py-5" id="pillars">
         <div class="container">
-            <div class="section-head text-center wow fadeInUp">
-                <span class="eyebrow">What We Do</span>
-                <h2 id="pillars-heading" class="section-title">Our Principal Areas of Expertise</h2>
-                <p class="section-intro">Our business is built around three principal service divisions, each designed to address important business and professional needs.</p>
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="text-secondary text-uppercase">What We Do</h6>
+                <h2 class="display-6 mb-3">Our Principal Areas of Expertise</h2>
+                <p class="mb-5 mx-auto" style="max-width: 720px;">Our business is built around three principal service divisions, each designed to address important business and professional needs.</p>
             </div>
             <div class="row g-4">
-                <div class="col-lg-4 col-md-6 pillar-col wow fadeInUp" data-wow-delay="0.05s">
-                    <article class="pillar-card">
-                        <div class="media-frame">
-                            <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=75&h=550" alt="Laboratory professional handling samples during product analysis" width="800" height="550" decoding="async" loading="lazy">
-                            <span class="pillar-num">01</span>
+                <div class="col-lg-4 col-md-6 service-item-top wow fadeInUp" data-wow-delay="0.1s">
+                    <article class="h-100 d-flex flex-column">
+                        <div class="overflow-hidden img-box">
+                            <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=700&q=75&h=420" alt="Laboratory professional handling samples during product analysis" class="img-fluid w-100 h-100" width="700" height="420" decoding="async" loading="lazy">
                         </div>
-                        <div class="pillar-body">
-                            <span class="pillar-icon"><i class="bi bi-clipboard2-data" aria-hidden="true"></i></span>
-                            <h3>NAFDAC &amp; Regulatory Consultation</h3>
+                        <div class="bg-light p-4 flex-grow-1 d-flex flex-column">
+                            <div class="d-flex align-items-center justify-content-center border border-5 border-white mb-4" style="width: 75px; height: 75px;">
+                                <i class="fa fa-clipboard-check fa-2x text-primary" aria-hidden="true"></i>
+                            </div>
+                            <h4 class="mb-3 text-uppercase">NAFDAC &amp; Regulatory Consultation</h4>
                             <p>Professional guidance and coordination for businesses navigating product registration, regulatory documentation, import permits, compliance support and laboratory analysis processes.</p>
-                            <ul class="check-list small"><li>Food Product Registration</li><li>Cosmetics &amp; Personal Care Registration</li><li>Herbal &amp; Haircare Product Registration</li><li>Import Permits &amp; Compliance Support</li><li>Laboratory Analysis Coordination</li></ul>
-                            <div class="mt-auto">
-                                <a href="service.html#nafdac-regulatory" data-landing="nafdac-regulatory" class="link-arrow">Explore Regulatory Services <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
-                            </div>
+                            <p class="text-primary fw-medium mb-2"><i class="fa fa-check text-success me-2" aria-hidden="true"></i>Food Product Registration</p>
+<p class="text-primary fw-medium mb-2"><i class="fa fa-check text-success me-2" aria-hidden="true"></i>Cosmetics &amp; Personal Care Registration</p>
+<p class="text-primary fw-medium mb-2"><i class="fa fa-check text-success me-2" aria-hidden="true"></i>Herbal &amp; Haircare Product Registration</p>
+<p class="text-primary fw-medium mb-2"><i class="fa fa-check text-success me-2" aria-hidden="true"></i>Import Permits &amp; Compliance Support</p>
+<p class="text-primary fw-medium mb-2"><i class="fa fa-check text-success me-2" aria-hidden="true"></i>Laboratory Analysis Coordination</p>
+                            <a href="service.html#nafdac-regulatory" data-landing="nafdac-regulatory" class="btn bg-white text-primary w-100 mt-auto pt-2">Explore Regulatory Services<i class="fa fa-arrow-right text-secondary ms-2" aria-hidden="true"></i></a>
                         </div>
                     </article>
                 </div>
-                <div class="col-lg-4 col-md-6 pillar-col wow fadeInUp" data-wow-delay="0.15s">
-                    <article class="pillar-card">
-                        <div class="media-frame">
-                            <img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=800&q=75&h=550" alt="Professional studio microphone used for radio and media interviews" width="800" height="550" decoding="async" loading="lazy">
-                            <span class="pillar-num">02</span>
+                <div class="col-lg-4 col-md-6 service-item-top wow fadeInUp" data-wow-delay="0.3s">
+                    <article class="h-100 d-flex flex-column">
+                        <div class="overflow-hidden img-box">
+                            <img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=700&q=75&h=420" alt="Professional studio microphone used for radio and media interviews" class="img-fluid w-100 h-100" width="700" height="420" decoding="async" loading="lazy">
                         </div>
-                        <div class="pillar-body">
-                            <span class="pillar-icon"><i class="bi bi-megaphone" aria-hidden="true"></i></span>
-                            <h3>PR, Media &amp; Communication</h3>
+                        <div class="bg-light p-4 flex-grow-1 d-flex flex-column">
+                            <div class="d-flex align-items-center justify-content-center border border-5 border-white mb-4" style="width: 75px; height: 75px;">
+                                <i class="fa fa-bullhorn fa-2x text-primary" aria-hidden="true"></i>
+                            </div>
+                            <h4 class="mb-3 text-uppercase">PR, Media &amp; Communication</h4>
                             <p>Strategic communication, public relations and media publicity services designed to strengthen brand reputation, improve visibility and connect organisations with their audiences.</p>
-                            <ul class="check-list small"><li>Press Releases &amp; Media Coverage</li><li>TV, Radio &amp; Media Publicity</li><li>Events &amp; Product Launch Coverage</li><li>Corporate Communications</li><li>Media Relations</li></ul>
-                            <div class="mt-auto">
-                                <a href="service.html#pr-media-communication" data-landing="pr-media-communication" class="link-arrow">Explore PR &amp; Media Services <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
-                            </div>
+                            <p class="text-primary fw-medium mb-2"><i class="fa fa-check text-success me-2" aria-hidden="true"></i>Press Releases &amp; Media Coverage</p>
+<p class="text-primary fw-medium mb-2"><i class="fa fa-check text-success me-2" aria-hidden="true"></i>TV, Radio &amp; Media Publicity</p>
+<p class="text-primary fw-medium mb-2"><i class="fa fa-check text-success me-2" aria-hidden="true"></i>Events &amp; Product Launch Coverage</p>
+<p class="text-primary fw-medium mb-2"><i class="fa fa-check text-success me-2" aria-hidden="true"></i>Corporate Communications</p>
+<p class="text-primary fw-medium mb-2"><i class="fa fa-check text-success me-2" aria-hidden="true"></i>Media Relations</p>
+                            <a href="service.html#pr-media-communication" data-landing="pr-media-communication" class="btn bg-white text-primary w-100 mt-auto pt-2">Explore PR &amp; Media Services<i class="fa fa-arrow-right text-secondary ms-2" aria-hidden="true"></i></a>
                         </div>
                     </article>
                 </div>
-                <div class="col-lg-4 col-md-6 pillar-col wow fadeInUp" data-wow-delay="0.25s">
-                    <article class="pillar-card">
-                        <div class="media-frame">
-                            <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=75&h=550" alt="Model during a professional fashion photography session" width="800" height="550" decoding="async" loading="lazy">
-                            <span class="pillar-num">03</span>
+                <div class="col-lg-4 col-md-6 service-item-top wow fadeInUp" data-wow-delay="0.5s">
+                    <article class="h-100 d-flex flex-column">
+                        <div class="overflow-hidden img-box">
+                            <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=700&q=75&h=420" alt="Model during a professional fashion photography session" class="img-fluid w-100 h-100" width="700" height="420" decoding="async" loading="lazy">
                         </div>
-                        <div class="pillar-body">
-                            <span class="pillar-icon"><i class="bi bi-person-bounding-box" aria-hidden="true"></i></span>
-                            <h3>Fashion, Modeling &amp; Talent Management</h3>
-                            <p>Professional talent sourcing, model coordination and brand campaign support connecting individuals, creative professionals and businesses with relevant opportunities.</p>
-                            <ul class="check-list small"><li>Model Recruitment &amp; Management</li><li>Commercial Shoots</li><li>Brand Campaigns</li><li>Talent Coordination</li><li>Creative Project Support</li></ul>
-                            <div class="mt-auto">
-                                <a href="service.html#fashion-modeling-talent" data-landing="fashion-modeling-talent" class="link-arrow">Explore Talent Services <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+                        <div class="bg-light p-4 flex-grow-1 d-flex flex-column">
+                            <div class="d-flex align-items-center justify-content-center border border-5 border-white mb-4" style="width: 75px; height: 75px;">
+                                <i class="fa fa-camera-retro fa-2x text-primary" aria-hidden="true"></i>
                             </div>
+                            <h4 class="mb-3 text-uppercase">Fashion, Modeling &amp; Talent Management</h4>
+                            <p>Professional talent sourcing, model coordination and brand campaign support connecting individuals, creative professionals and businesses with relevant opportunities.</p>
+                            <p class="text-primary fw-medium mb-2"><i class="fa fa-check text-success me-2" aria-hidden="true"></i>Model Recruitment &amp; Management</p>
+<p class="text-primary fw-medium mb-2"><i class="fa fa-check text-success me-2" aria-hidden="true"></i>Commercial Shoots</p>
+<p class="text-primary fw-medium mb-2"><i class="fa fa-check text-success me-2" aria-hidden="true"></i>Brand Campaigns</p>
+<p class="text-primary fw-medium mb-2"><i class="fa fa-check text-success me-2" aria-hidden="true"></i>Talent Coordination</p>
+<p class="text-primary fw-medium mb-2"><i class="fa fa-check text-success me-2" aria-hidden="true"></i>Creative Project Support</p>
+                            <a href="service.html#fashion-modeling-talent" data-landing="fashion-modeling-talent" class="btn bg-white text-primary w-100 mt-auto pt-2">Explore Talent Services<i class="fa fa-arrow-right text-secondary ms-2" aria-hidden="true"></i></a>
                         </div>
                     </article>
                 </div>
             </div>
-            <div class="mt-4 wow fadeInUp">
-                <div class="disclaimer" role="note">
-                    <i class="bi bi-info-circle" aria-hidden="true"></i>
-                    <div><strong>Important:</strong> Regulatory consultation and coordination services are provided to support clients through applicable processes and documentation requirements. Final registration, approvals, permits and regulatory decisions remain subject to the relevant authorities and their applicable procedures. CROSSWAVE is an independent consultancy and is not NAFDAC or any government agency.</div>
+            <div class="mt-4 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="disclaimer bg-light p-4 d-flex" role="note">
+                    <i class="fa fa-info-circle text-primary me-3 mt-1" aria-hidden="true"></i>
+                    <p class="mb-0 small"><strong class="text-dark">Important:</strong> Regulatory consultation and coordination services are provided to support clients through applicable processes and documentation requirements. Final registration, approvals, permits and regulatory decisions remain subject to the relevant authorities and their applicable procedures. CROSSWAVE is an independent consultancy and is not NAFDAC or any government agency.</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
     <!-- Core Pillars End -->
 
 
-    <!-- Service Portfolio Start -->
-    <section class="section" id="services" aria-labelledby="services-heading">
-        <div class="container">
-            <div class="row align-items-end section-head g-4">
-                <div class="col-lg-7 wow fadeInUp">
-                    <span class="eyebrow">Our Services</span>
-                    <h2 id="services-heading" class="section-title mb-0">Comprehensive Solutions. One Strategic Partner.</h2>
-                </div>
-                <div class="col-lg-5 wow fadeInUp" data-wow-delay="0.1s">
-                    <p class="mb-0">Beyond our principal business divisions, CROSSWAVE provides complementary services that help businesses strengthen their operations, improve market presence and execute important projects.</p>
+    <!-- Service Start -->
+    <div class="container-fluid py-5 px-4 px-lg-0" id="services">
+        <div class="row g-0">
+            <div class="col-lg-3 d-none d-lg-flex">
+                <div class="d-flex align-items-center justify-content-center bg-primary w-100 h-100">
+                    <p class="display-5 text-white fw-bold m-0 text-nowrap" style="transform: rotate(-90deg); font-family: 'Roboto', sans-serif;">One Strategic Partner</p>
                 </div>
             </div>
-            <div class="row g-4">
-                <div class="col-lg-8 wow fadeInUp">
-                    <article class="svc-card is-wide tone-navy">
-                        <div class="media-frame"><span class="pillar-tag">Core Division</span><img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=900&q=75&h=800" alt="Audience attending a professional conference and product launch event" width="900" height="800" decoding="async" loading="lazy"></div>
-                        <div class="svc-body">
-                            <span class="svc-icon"><i class="bi bi-megaphone" aria-hidden="true"></i></span>
-                            <span class="svc-kicker">Service 01</span>
-                            <h3>PR, Media & Communication</h3>
+            <div class="col-md-12 col-lg-9">
+                <div class="ms-lg-5 ps-lg-5">
+                    <div class="text-center text-lg-start wow fadeInUp" data-wow-delay="0.1s">
+                        <h6 class="text-secondary text-uppercase">Our Services</h6>
+                        <h2 class="display-6 mb-3">Comprehensive Solutions. One Strategic Partner.</h2>
+                        <p class="mb-5 pe-lg-5">Beyond our principal business divisions, CROSSWAVE provides complementary services that help businesses strengthen their operations, improve market presence and execute important projects.</p>
+                    </div>
+                    <div class="owl-carousel service-carousel position-relative wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="bg-light p-4 h-100">
+                            <div class="overflow-hidden img-box mb-4"><img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=600&q=75&h=340" alt="Audience attending a professional conference and product launch event" class="img-fluid w-100" width="600" height="340" decoding="async" loading="lazy"></div>
+                            <div class="d-flex align-items-center justify-content-center border border-5 border-white mb-4" style="width: 75px; height: 75px;">
+                                <i class="fa fa-bullhorn fa-2x text-primary" aria-hidden="true"></i>
+                            </div>
+                            <h6 class="text-secondary text-uppercase mb-2">Service 01 · Core Division</h6>
+                            <h4 class="mb-3">PR, Media & Communication</h4>
                             <p>We help brands and organisations communicate effectively, reach relevant audiences and strengthen their public image through strategic media and communication solutions.</p>
-                            <ul class="check-list small"><li>Press Releases &amp; Media Coverage</li><li>TV, Radio &amp; Media Publicity</li><li>Events &amp; Product Launch Coverage</li></ul>
-                            <a href="service.html#pr-media-communication" data-landing="pr-media-communication" class="link-arrow">Explore Service <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+                            <p class="text-primary fw-medium mb-2"><i class="fa fa-check text-success me-2" aria-hidden="true"></i>Press Releases &amp; Media Coverage</p>
+<p class="text-primary fw-medium mb-2"><i class="fa fa-check text-success me-2" aria-hidden="true"></i>TV, Radio &amp; Media Publicity</p>
+<p class="text-primary fw-medium mb-2"><i class="fa fa-check text-success me-2" aria-hidden="true"></i>Events &amp; Product Launch Coverage</p>
+                            <a href="service.html#pr-media-communication" data-landing="pr-media-communication" class="btn bg-white text-primary w-100 mt-2">Explore Service<i class="fa fa-arrow-right text-secondary ms-2" aria-hidden="true"></i></a>
                         </div>
-                    </article>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp">
-                    <article class="svc-card tone-accent">
-                        <div class="media-frame"><img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=75&h=450" alt="Smartphone showing social media applications used for digital marketing" width="800" height="450" decoding="async" loading="lazy"></div>
-                        <div class="svc-body">
-                            <span class="svc-icon"><i class="bi bi-graph-up-arrow" aria-hidden="true"></i></span>
-                            <span class="svc-kicker">Service 02</span>
-                            <h3>Digital Marketing & Brand Promotion</h3>
+                        <div class="bg-light p-4 h-100">
+                            <div class="overflow-hidden img-box mb-4"><img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=75&h=340" alt="Smartphone showing social media applications used for digital marketing" class="img-fluid w-100" width="600" height="340" decoding="async" loading="lazy"></div>
+                            <div class="d-flex align-items-center justify-content-center border border-5 border-white mb-4" style="width: 75px; height: 75px;">
+                                <i class="fa fa-chart-line fa-2x text-primary" aria-hidden="true"></i>
+                            </div>
+                            <h6 class="text-secondary text-uppercase mb-2">Service 02</h6>
+                            <h4 class="mb-3">Digital Marketing & Brand Promotion</h4>
                             <p>We support businesses in developing their digital presence, engaging their target audiences and building stronger brand awareness through creative digital marketing solutions.</p>
-                            <ul class="check-list small"><li>Social Media Management</li><li>Digital Advertising</li><li>Content Creation</li><li>Brand Awareness &amp; Promotion</li></ul>
-                            <a href="service.html#digital-marketing" class="link-arrow">Explore Service <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+                            <p class="text-primary fw-medium mb-2"><i class="fa fa-check text-success me-2" aria-hidden="true"></i>Social Media Management</p>
+<p class="text-primary fw-medium mb-2"><i class="fa fa-check text-success me-2" aria-hidden="true"></i>Digital Advertising</p>
+<p class="text-primary fw-medium mb-2"><i class="fa fa-check text-success me-2" aria-hidden="true"></i>Content Creation</p>
+<p class="text-primary fw-medium mb-2"><i class="fa fa-check text-success me-2" aria-hidden="true"></i>Brand Awareness &amp; Promotion</p>
+                            <a href="service.html#digital-marketing" class="btn bg-white text-primary w-100 mt-2">Explore Service<i class="fa fa-arrow-right text-secondary ms-2" aria-hidden="true"></i></a>
                         </div>
-                    </article>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp">
-                    <article class="svc-card tone-mist">
-                        <div class="media-frame"><span class="pillar-tag">Core Division</span><img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=800&q=75&h=450" alt="Cosmetics and personal care products arranged for review" width="800" height="450" decoding="async" loading="lazy"></div>
-                        <div class="svc-body">
-                            <span class="svc-icon"><i class="bi bi-clipboard2-data" aria-hidden="true"></i></span>
-                            <span class="svc-kicker">Service 03</span>
-                            <h3>NAFDAC & Regulatory Consultation</h3>
+                        <div class="bg-light p-4 h-100">
+                            <div class="overflow-hidden img-box mb-4"><img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=600&q=75&h=340" alt="Cosmetics and personal care products arranged for review" class="img-fluid w-100" width="600" height="340" decoding="async" loading="lazy"></div>
+                            <div class="d-flex align-items-center justify-content-center border border-5 border-white mb-4" style="width: 75px; height: 75px;">
+                                <i class="fa fa-clipboard-check fa-2x text-primary" aria-hidden="true"></i>
+                            </div>
+                            <h6 class="text-secondary text-uppercase mb-2">Service 03 · Core Division</h6>
+                            <h4 class="mb-3">NAFDAC & Regulatory Consultation</h4>
                             <p>We provide consultation and coordination support to businesses seeking to navigate applicable regulatory processes for food, cosmetics, herbal and haircare products.</p>
-                            <ul class="check-list small"><li>Food Product Registration</li><li>Cosmetics, Herbal &amp; Haircare Registration</li><li>Import Permits &amp; Compliance Support</li><li>Laboratory Analysis Coordination</li></ul>
-                            <a href="service.html#nafdac-regulatory" data-landing="nafdac-regulatory" class="link-arrow">Explore Service <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+                            <p class="text-primary fw-medium mb-2"><i class="fa fa-check text-success me-2" aria-hidden="true"></i>Food Product Registration</p>
+<p class="text-primary fw-medium mb-2"><i class="fa fa-check text-success me-2" aria-hidden="true"></i>Cosmetics, Herbal &amp; Haircare Registration</p>
+<p class="text-primary fw-medium mb-2"><i class="fa fa-check text-success me-2" aria-hidden="true"></i>Import Permits &amp; Compliance Support</p>
+<p class="text-primary fw-medium mb-2"><i class="fa fa-check text-success me-2" aria-hidden="true"></i>Laboratory Analysis Coordination</p>
+                            <a href="service.html#nafdac-regulatory" data-landing="nafdac-regulatory" class="btn bg-white text-primary w-100 mt-2">Explore Service<i class="fa fa-arrow-right text-secondary ms-2" aria-hidden="true"></i></a>
                         </div>
-                    </article>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp">
-                    <article class="svc-card ">
-                        <div class="media-frame"><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=75&h=450" alt="Consultant presenting a business strategy to colleagues" width="800" height="450" decoding="async" loading="lazy"></div>
-                        <div class="svc-body">
-                            <span class="svc-icon"><i class="bi bi-kanban" aria-hidden="true"></i></span>
-                            <span class="svc-kicker">Service 04</span>
-                            <h3>Project Management & Business Consultancy</h3>
+                        <div class="bg-light p-4 h-100">
+                            <div class="overflow-hidden img-box mb-4"><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=600&q=75&h=340" alt="Consultant presenting a business strategy to colleagues" class="img-fluid w-100" width="600" height="340" decoding="async" loading="lazy"></div>
+                            <div class="d-flex align-items-center justify-content-center border border-5 border-white mb-4" style="width: 75px; height: 75px;">
+                                <i class="fa fa-project-diagram fa-2x text-primary" aria-hidden="true"></i>
+                            </div>
+                            <h6 class="text-secondary text-uppercase mb-2">Service 04</h6>
+                            <h4 class="mb-3">Project Management & Business Consultancy</h4>
                             <p>We assist businesses and organisations with planning, coordination, development and execution of projects, alongside business advisory and consultancy support.</p>
-                            <ul class="check-list small"><li>Project Planning &amp; Execution</li><li>Business Development</li><li>Corporate Consultancy</li><li>Government Consultancy</li></ul>
-                            <a href="service.html#project-management" class="link-arrow">Explore Service <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+                            <p class="text-primary fw-medium mb-2"><i class="fa fa-check text-success me-2" aria-hidden="true"></i>Project Planning &amp; Execution</p>
+<p class="text-primary fw-medium mb-2"><i class="fa fa-check text-success me-2" aria-hidden="true"></i>Business Development</p>
+<p class="text-primary fw-medium mb-2"><i class="fa fa-check text-success me-2" aria-hidden="true"></i>Corporate Consultancy</p>
+<p class="text-primary fw-medium mb-2"><i class="fa fa-check text-success me-2" aria-hidden="true"></i>Government Consultancy</p>
+                            <a href="service.html#project-management" class="btn bg-white text-primary w-100 mt-2">Explore Service<i class="fa fa-arrow-right text-secondary ms-2" aria-hidden="true"></i></a>
                         </div>
-                    </article>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp">
-                    <article class="svc-card tone-accent">
-                        <div class="media-frame"><span class="pillar-tag">Core Division</span><img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=800&q=75&h=450" alt="Editorial fashion campaign photograph" width="800" height="450" decoding="async" loading="lazy"></div>
-                        <div class="svc-body">
-                            <span class="svc-icon"><i class="bi bi-person-bounding-box" aria-hidden="true"></i></span>
-                            <span class="svc-kicker">Service 05</span>
-                            <h3>Fashion, Modeling & Talent Management</h3>
+                        <div class="bg-light p-4 h-100">
+                            <div class="overflow-hidden img-box mb-4"><img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=600&q=75&h=340" alt="Editorial fashion campaign photograph" class="img-fluid w-100" width="600" height="340" decoding="async" loading="lazy"></div>
+                            <div class="d-flex align-items-center justify-content-center border border-5 border-white mb-4" style="width: 75px; height: 75px;">
+                                <i class="fa fa-camera-retro fa-2x text-primary" aria-hidden="true"></i>
+                            </div>
+                            <h6 class="text-secondary text-uppercase mb-2">Service 05 · Core Division</h6>
+                            <h4 class="mb-3">Fashion, Modeling & Talent Management</h4>
                             <p>We connect brands with suitable creative talent and provide coordination support for modeling assignments, commercial productions and promotional campaigns.</p>
-                            <ul class="check-list small"><li>Model Recruitment &amp; Management</li><li>Commercial Shoots</li><li>Brand Campaigns</li><li>Talent Coordination</li></ul>
-                            <a href="service.html#fashion-modeling-talent" data-landing="fashion-modeling-talent" class="link-arrow">Explore Service <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+                            <p class="text-primary fw-medium mb-2"><i class="fa fa-check text-success me-2" aria-hidden="true"></i>Model Recruitment &amp; Management</p>
+<p class="text-primary fw-medium mb-2"><i class="fa fa-check text-success me-2" aria-hidden="true"></i>Commercial Shoots</p>
+<p class="text-primary fw-medium mb-2"><i class="fa fa-check text-success me-2" aria-hidden="true"></i>Brand Campaigns</p>
+<p class="text-primary fw-medium mb-2"><i class="fa fa-check text-success me-2" aria-hidden="true"></i>Talent Coordination</p>
+                            <a href="service.html#fashion-modeling-talent" data-landing="fashion-modeling-talent" class="btn bg-white text-primary w-100 mt-2">Explore Service<i class="fa fa-arrow-right text-secondary ms-2" aria-hidden="true"></i></a>
                         </div>
-                    </article>
-                </div>
-                <div class="col-12 wow fadeInUp">
-                    <article class="svc-card is-wide tone-blue">
-                        <div class="media-frame"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=900&q=75&h=800" alt="Organised logistics warehouse with goods prepared for delivery" width="900" height="800" decoding="async" loading="lazy"></div>
-                        <div class="svc-body">
-                            <span class="svc-icon"><i class="bi bi-truck" aria-hidden="true"></i></span>
-                            <span class="svc-kicker">Service 06</span>
-                            <h3>Logistics & Haulage Services</h3>
+                        <div class="bg-light p-4 h-100">
+                            <div class="overflow-hidden img-box mb-4"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=75&h=340" alt="Organised logistics warehouse with goods prepared for delivery" class="img-fluid w-100" width="600" height="340" decoding="async" loading="lazy"></div>
+                            <div class="d-flex align-items-center justify-content-center border border-5 border-white mb-4" style="width: 75px; height: 75px;">
+                                <i class="fa fa-truck fa-2x text-primary" aria-hidden="true"></i>
+                            </div>
+                            <h6 class="text-secondary text-uppercase mb-2">Service 06</h6>
+                            <h4 class="mb-3">Logistics & Haulage Services</h4>
                             <p>We support transportation and delivery requirements through logistics coordination and haulage-related service arrangements.</p>
-                            <ul class="check-list small"><li>Transportation Coordination</li><li>Delivery Coordination</li><li>Haulage Support</li></ul>
-                            <a href="service.html#logistics-haulage" class="link-arrow">Explore Service <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+                            <p class="text-primary fw-medium mb-2"><i class="fa fa-check text-success me-2" aria-hidden="true"></i>Transportation Coordination</p>
+<p class="text-primary fw-medium mb-2"><i class="fa fa-check text-success me-2" aria-hidden="true"></i>Delivery Coordination</p>
+<p class="text-primary fw-medium mb-2"><i class="fa fa-check text-success me-2" aria-hidden="true"></i>Haulage Support</p>
+                            <a href="service.html#logistics-haulage" class="btn bg-white text-primary w-100 mt-2">Explore Service<i class="fa fa-arrow-right text-secondary ms-2" aria-hidden="true"></i></a>
                         </div>
-                    </article>
+                    </div>
+                    <div class="text-center text-lg-start mt-5">
+                        <a href="service.html" class="btn btn-primary py-3 px-5">View the Full Service Directory</a>
+                    </div>
                 </div>
-            </div>
-            <div class="text-center mt-5">
-                <a href="service.html" class="btn btn-outline-primary">View the Full Service Directory</a>
             </div>
         </div>
-    </section>
-    <!-- Service Portfolio End -->
+    </div>
+    <!-- Service End -->
 
 
     <!-- Why Choose Start -->
-    <section class="section bg-mist" id="why" aria-labelledby="why-heading">
+    <div class="container-fluid fact bg-dark my-5 py-5" id="why" style="background-image: linear-gradient(rgba(0, 0, 0, .65), rgba(0, 0, 0, .65)), url(https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=75&h=900);">
         <div class="container">
+            <div class="text-center wow fadeInUp mb-5" data-wow-delay="0.1s">
+                <h6 class="text-secondary text-uppercase">Why Work With Us</h6>
+                <h2 class="display-6 text-white mb-3">A Reliable Partner for Integrated Business Solutions</h2>
+                <p class="text-white mx-auto mb-0" style="max-width: 760px;">We believe effective business support requires more than individual services. It requires an understanding of objectives, careful coordination and a commitment to delivering practical solutions.</p>
+            </div>
             <div class="row g-5">
-                <div class="col-lg-4 wow fadeInUp">
-                    <div class="sticky-lg-top" style="top: calc(var(--cw-header-h) + 2rem);">
-                        <span class="eyebrow">Why Work With Us</span>
-                        <h2 id="why-heading" class="section-title">A Reliable Partner for Integrated Business Solutions</h2>
-                        <p class="mb-4">We believe effective business support requires more than individual services. It requires an understanding of objectives, careful coordination and a commitment to delivering practical solutions.</p>
-                        <a href="booking.html" class="btn btn-primary">Request a Consultation</a>
-                    </div>
+                <div class="col-md-6 col-lg-4 text-center wow fadeIn" data-wow-delay="0.1s">
+                    <i class="fa fa-layer-group fa-2x text-white mb-3" aria-hidden="true"></i>
+                    <h3 class="h5 text-white text-uppercase mb-2">Integrated Service Delivery</h3>
+                    <p class="text-white mb-0">Access multiple complementary business services through one professional organisation.</p>
                 </div>
-                <div class="col-lg-8">
-                    <div class="row g-4">
-                <div class="col-md-6 wow fadeInUp" data-wow-delay="0.05s">
-                    <div class="benefit">
-                        <span class="benefit-icon"><i class="bi bi-diagram-3" aria-hidden="true"></i></span>
-                        <h3>Integrated Service Delivery</h3>
-                        <p>Access multiple complementary business services through one professional organisation.</p>
-                    </div>
+                <div class="col-md-6 col-lg-4 text-center wow fadeIn" data-wow-delay="0.3s">
+                    <i class="fa fa-user-check fa-2x text-white mb-3" aria-hidden="true"></i>
+                    <h3 class="h5 text-white text-uppercase mb-2">Client-Centred Approach</h3>
+                    <p class="text-white mb-0">We take time to understand individual requirements and develop solutions around specific objectives.</p>
                 </div>
-                <div class="col-md-6 wow fadeInUp" data-wow-delay="0.15s">
-                    <div class="benefit">
-                        <span class="benefit-icon"><i class="bi bi-person-check" aria-hidden="true"></i></span>
-                        <h3>Client-Centred Approach</h3>
-                        <p>We take time to understand individual requirements and develop solutions around specific objectives.</p>
-                    </div>
+                <div class="col-md-6 col-lg-4 text-center wow fadeIn" data-wow-delay="0.5s">
+                    <i class="fa fa-tasks fa-2x text-white mb-3" aria-hidden="true"></i>
+                    <h3 class="h5 text-white text-uppercase mb-2">Professional Coordination</h3>
+                    <p class="text-white mb-0">We prioritise effective communication, organised processes and responsible project coordination.</p>
                 </div>
-                <div class="col-md-6 wow fadeInUp" data-wow-delay="0.25s">
-                    <div class="benefit">
-                        <span class="benefit-icon"><i class="bi bi-list-check" aria-hidden="true"></i></span>
-                        <h3>Professional Coordination</h3>
-                        <p>We prioritise effective communication, organised processes and responsible project coordination.</p>
-                    </div>
+                <div class="col-md-6 col-lg-4 text-center wow fadeIn" data-wow-delay="0.1s">
+                    <i class="fa fa-lightbulb fa-2x text-white mb-3" aria-hidden="true"></i>
+                    <h3 class="h5 text-white text-uppercase mb-2">Strategic Thinking</h3>
+                    <p class="text-white mb-0">Our approach considers the bigger picture, helping clients identify opportunities and make informed decisions.</p>
                 </div>
-                <div class="col-md-6 wow fadeInUp" data-wow-delay="0.05s">
-                    <div class="benefit">
-                        <span class="benefit-icon"><i class="bi bi-lightbulb" aria-hidden="true"></i></span>
-                        <h3>Strategic Thinking</h3>
-                        <p>Our approach considers the bigger picture, helping clients identify opportunities and make informed decisions.</p>
-                    </div>
+                <div class="col-md-6 col-lg-4 text-center wow fadeIn" data-wow-delay="0.3s">
+                    <i class="fa fa-sync-alt fa-2x text-white mb-3" aria-hidden="true"></i>
+                    <h3 class="h5 text-white text-uppercase mb-2">Flexibility and Adaptability</h3>
+                    <p class="text-white mb-0">We recognise that business requirements change and provide flexible support suited to different needs.</p>
                 </div>
-                <div class="col-md-6 wow fadeInUp" data-wow-delay="0.15s">
-                    <div class="benefit">
-                        <span class="benefit-icon"><i class="bi bi-arrow-repeat" aria-hidden="true"></i></span>
-                        <h3>Flexibility and Adaptability</h3>
-                        <p>We recognise that business requirements change and provide flexible support suited to different needs.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 wow fadeInUp" data-wow-delay="0.25s">
-                    <div class="benefit">
-                        <span class="benefit-icon"><i class="bi bi-gem" aria-hidden="true"></i></span>
-                        <h3>Commitment to Quality</h3>
-                        <p>We value professionalism, attention to detail and continuous improvement in every engagement.</p>
-                    </div>
-                </div>
-                    </div>
+                <div class="col-md-6 col-lg-4 text-center wow fadeIn" data-wow-delay="0.5s">
+                    <i class="fa fa-gem fa-2x text-white mb-3" aria-hidden="true"></i>
+                    <h3 class="h5 text-white text-uppercase mb-2">Commitment to Quality</h3>
+                    <p class="text-white mb-0">We value professionalism, attention to detail and continuous improvement in every engagement.</p>
                 </div>
             </div>
+            <div class="text-center mt-5">
+                <a href="booking.html" class="btn btn-primary py-3 px-5">Request a Consultation</a>
+            </div>
         </div>
-    </section>
+    </div>
     <!-- Why Choose End -->
 
 
     <!-- Approach Start -->
-    <section class="section" id="approach" aria-labelledby="approach-heading">
+    <div class="container-xxl py-5" id="approach">
         <div class="container">
-            <div class="section-head text-center wow fadeInUp">
-                <span class="eyebrow">Our Process</span>
-                <h2 id="approach-heading" class="section-title">A Clear, Collaborative Approach to Every Engagement</h2>
-                <p class="section-intro">Our working approach is designed to create clarity, encourage collaboration and support effective service delivery.</p>
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="text-secondary text-uppercase">Our Process</h6>
+                <h2 class="display-6 mb-3">A Clear, Collaborative Approach to Every Engagement</h2>
+                <p class="mb-5 mx-auto" style="max-width: 720px;">Our working approach is designed to create clarity, encourage collaboration and support effective service delivery.</p>
             </div>
-            <div class="row g-5 process">
-                <div class="col-lg-3 col-md-6 process-step wow fadeInUp" data-wow-delay="0.05s">
-                    <span class="process-num">01</span>
-                    <h3><small>STEP 01</small>Understand</h3>
-                    <p>We begin by listening to your needs, understanding your objectives and identifying the specific support required.</p>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="bg-light p-4 h-100 step-item">
+                        <div class="d-flex align-items-center justify-content-center border border-5 border-white bg-primary mb-4" style="width: 75px; height: 75px;">
+                            <span class="h3 text-white m-0">01</span>
+                        </div>
+                        <h6 class="text-secondary text-uppercase mb-1">Step 01</h6>
+                        <h4 class="mb-3">Understand</h4>
+                        <p class="mb-0">We begin by listening to your needs, understanding your objectives and identifying the specific support required.</p>
+                    </div>
                 </div>
-                <div class="col-lg-3 col-md-6 process-step wow fadeInUp" data-wow-delay="0.15s">
-                    <span class="process-num">02</span>
-                    <h3><small>STEP 02</small>Plan</h3>
-                    <p>We assess the requirements and develop an appropriate approach, outlining the necessary activities, responsibilities and expected deliverables.</p>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="bg-light p-4 h-100 step-item">
+                        <div class="d-flex align-items-center justify-content-center border border-5 border-white bg-primary mb-4" style="width: 75px; height: 75px;">
+                            <span class="h3 text-white m-0">02</span>
+                        </div>
+                        <h6 class="text-secondary text-uppercase mb-1">Step 02</h6>
+                        <h4 class="mb-3">Plan</h4>
+                        <p class="mb-0">We assess the requirements and develop an appropriate approach, outlining the necessary activities, responsibilities and expected deliverables.</p>
+                    </div>
                 </div>
-                <div class="col-lg-3 col-md-6 process-step wow fadeInUp" data-wow-delay="0.25s">
-                    <span class="process-num">03</span>
-                    <h3><small>STEP 03</small>Execute</h3>
-                    <p>We coordinate the agreed activities, maintain communication and work towards the intended project or service objectives.</p>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="bg-light p-4 h-100 step-item">
+                        <div class="d-flex align-items-center justify-content-center border border-5 border-white bg-primary mb-4" style="width: 75px; height: 75px;">
+                            <span class="h3 text-white m-0">03</span>
+                        </div>
+                        <h6 class="text-secondary text-uppercase mb-1">Step 03</h6>
+                        <h4 class="mb-3">Execute</h4>
+                        <p class="mb-0">We coordinate the agreed activities, maintain communication and work towards the intended project or service objectives.</p>
+                    </div>
                 </div>
-                <div class="col-lg-3 col-md-6 process-step wow fadeInUp" data-wow-delay="0.35s">
-                    <span class="process-num">04</span>
-                    <h3><small>STEP 04</small>Support</h3>
-                    <p>We maintain engagement, provide relevant updates and support the next steps based on the agreed scope of work.</p>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="bg-light p-4 h-100 step-item">
+                        <div class="d-flex align-items-center justify-content-center border border-5 border-white bg-primary mb-4" style="width: 75px; height: 75px;">
+                            <span class="h3 text-white m-0">04</span>
+                        </div>
+                        <h6 class="text-secondary text-uppercase mb-1">Step 04</h6>
+                        <h4 class="mb-3">Support</h4>
+                        <p class="mb-0">We maintain engagement, provide relevant updates and support the next steps based on the agreed scope of work.</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
     <!-- Approach End -->
 
 
     <!-- Industries Start -->
-    <section class="section bg-mist" id="industries" aria-labelledby="industries-heading">
+    <div class="container-xxl py-5" id="industries">
         <div class="container">
             <div class="row g-5 align-items-center">
-                <div class="col-lg-4 d-none d-lg-block wow fadeInUp">
-                    <div class="industries-visual">
-                        <div class="media-frame"><img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=700&q=75&h=875" alt="Diverse team of professionals working together on laptops" width="700" height="875" decoding="async" loading="lazy"></div>
-                    </div>
+                <div class="col-lg-4 d-none d-lg-block wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="overflow-hidden img-box"><img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=700&q=75&h=875" alt="Diverse team of professionals working together on laptops" class="img-fluid w-100" width="700" height="875" decoding="async" loading="lazy"></div>
                 </div>
                 <div class="col-lg-8">
-                    <div class="wow fadeInUp">
-                        <span class="eyebrow">Who We Serve</span>
-                        <h2 id="industries-heading" class="section-title">Supporting Businesses Across Different Sectors</h2>
-                        <p class="section-intro mb-4">Our services are designed to support a broad range of clients, from emerging entrepreneurs and growing businesses to established organisations and creative professionals.</p>
+                    <div class="wow fadeInUp" data-wow-delay="0.1s">
+                        <h6 class="text-secondary text-uppercase">Who We Serve</h6>
+                        <h2 class="display-6 mb-3">Supporting Businesses Across Different Sectors</h2>
+                        <p class="mb-4">Our services are designed to support a broad range of clients, from emerging entrepreneurs and growing businesses to established organisations and creative professionals.</p>
                     </div>
-                    <div class="row g-3 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="col-sm-6 col-xl-4"><div class="industry"><i class="bi bi-basket" aria-hidden="true"></i><span>Food &amp; Beverage Businesses</span></div></div>
-                        <div class="col-sm-6 col-xl-4"><div class="industry"><i class="bi bi-stars" aria-hidden="true"></i><span>Cosmetics &amp; Personal Care Brands</span></div></div>
-                        <div class="col-sm-6 col-xl-4"><div class="industry"><i class="bi bi-flower1" aria-hidden="true"></i><span>Herbal &amp; Natural Product Businesses</span></div></div>
-                        <div class="col-sm-6 col-xl-4"><div class="industry"><i class="bi bi-bag" aria-hidden="true"></i><span>Fashion &amp; Lifestyle Brands</span></div></div>
-                        <div class="col-sm-6 col-xl-4"><div class="industry"><i class="bi bi-camera-reels" aria-hidden="true"></i><span>Media &amp; Entertainment</span></div></div>
-                        <div class="col-sm-6 col-xl-4"><div class="industry"><i class="bi bi-building" aria-hidden="true"></i><span>Corporate Organisations</span></div></div>
-                        <div class="col-sm-6 col-xl-4"><div class="industry"><i class="bi bi-shop" aria-hidden="true"></i><span>Entrepreneurs &amp; SMEs</span></div></div>
-                        <div class="col-sm-6 col-xl-4"><div class="industry"><i class="bi bi-palette" aria-hidden="true"></i><span>Creative Professionals</span></div></div>
-                        <div class="col-sm-6 col-xl-4"><div class="industry"><i class="bi bi-bank" aria-hidden="true"></i><span>Public and Private Sector Organisations</span></div></div>
+                    <div class="row g-3 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="col-sm-6 col-xl-4">
+                            <div class="d-flex align-items-center bg-light p-3 h-100 industry-item">
+                                <span class="btn btn-square btn-outline-primary border-2 border-white bg-white flex-shrink-0 me-3"><i class="fa fa-utensils" aria-hidden="true"></i></span>
+                                <h3 class="h6 mb-0">Food &amp; Beverage Businesses</h3>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xl-4">
+                            <div class="d-flex align-items-center bg-light p-3 h-100 industry-item">
+                                <span class="btn btn-square btn-outline-primary border-2 border-white bg-white flex-shrink-0 me-3"><i class="fa fa-spa" aria-hidden="true"></i></span>
+                                <h3 class="h6 mb-0">Cosmetics &amp; Personal Care Brands</h3>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xl-4">
+                            <div class="d-flex align-items-center bg-light p-3 h-100 industry-item">
+                                <span class="btn btn-square btn-outline-primary border-2 border-white bg-white flex-shrink-0 me-3"><i class="fa fa-leaf" aria-hidden="true"></i></span>
+                                <h3 class="h6 mb-0">Herbal &amp; Natural Product Businesses</h3>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xl-4">
+                            <div class="d-flex align-items-center bg-light p-3 h-100 industry-item">
+                                <span class="btn btn-square btn-outline-primary border-2 border-white bg-white flex-shrink-0 me-3"><i class="fa fa-tshirt" aria-hidden="true"></i></span>
+                                <h3 class="h6 mb-0">Fashion &amp; Lifestyle Brands</h3>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xl-4">
+                            <div class="d-flex align-items-center bg-light p-3 h-100 industry-item">
+                                <span class="btn btn-square btn-outline-primary border-2 border-white bg-white flex-shrink-0 me-3"><i class="fa fa-video" aria-hidden="true"></i></span>
+                                <h3 class="h6 mb-0">Media &amp; Entertainment</h3>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xl-4">
+                            <div class="d-flex align-items-center bg-light p-3 h-100 industry-item">
+                                <span class="btn btn-square btn-outline-primary border-2 border-white bg-white flex-shrink-0 me-3"><i class="fa fa-building" aria-hidden="true"></i></span>
+                                <h3 class="h6 mb-0">Corporate Organisations</h3>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xl-4">
+                            <div class="d-flex align-items-center bg-light p-3 h-100 industry-item">
+                                <span class="btn btn-square btn-outline-primary border-2 border-white bg-white flex-shrink-0 me-3"><i class="fa fa-store" aria-hidden="true"></i></span>
+                                <h3 class="h6 mb-0">Entrepreneurs &amp; SMEs</h3>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xl-4">
+                            <div class="d-flex align-items-center bg-light p-3 h-100 industry-item">
+                                <span class="btn btn-square btn-outline-primary border-2 border-white bg-white flex-shrink-0 me-3"><i class="fa fa-palette" aria-hidden="true"></i></span>
+                                <h3 class="h6 mb-0">Creative Professionals</h3>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xl-4">
+                            <div class="d-flex align-items-center bg-light p-3 h-100 industry-item">
+                                <span class="btn btn-square btn-outline-primary border-2 border-white bg-white flex-shrink-0 me-3"><i class="fa fa-landmark" aria-hidden="true"></i></span>
+                                <h3 class="h6 mb-0">Public and Private Sector Organisations</h3>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
     <!-- Industries End -->
 
-    <!-- CTA Start -->
-    <section class="section cta-band" aria-labelledby="cta-heading">
-        <svg class="wave-lines" viewBox="0 0 800 400" fill="none" aria-hidden="true" focusable="false">
-            <path d="M0 260 C 160 180, 320 340, 480 250 S 720 160, 800 210" stroke="#00A3E0" stroke-width="2"/>
-            <path d="M0 290 C 160 210, 320 370, 480 280 S 720 190, 800 240" stroke="#00A3E0" stroke-width="1.5" opacity=".7"/>
-            <path d="M0 320 C 160 240, 320 400, 480 310 S 720 220, 800 270" stroke="#FFFFFF" stroke-width="1" opacity=".5"/>
-            <path d="M0 350 C 160 270, 320 430, 480 340 S 720 250, 800 300" stroke="#FFFFFF" stroke-width="1" opacity=".3"/>
-        </svg>
-        <div class="container">
-            <div class="row align-items-center g-4">
-                <div class="col-lg-8 wow fadeInUp">
-                    <h2 id="cta-heading" class="mb-3">Let's Move Your Business Forward.</h2>
-                    <p class="mb-0">Whether you require regulatory consultation, media visibility, brand promotion, talent coordination, business consultancy or logistics support, CROSSWAVE is ready to understand your requirements and explore how we can help.</p>
-                </div>
-                <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.15s">
-                    <div class="d-flex flex-wrap flex-lg-column align-items-lg-end gap-3">
-                        <a href="booking.html" class="btn btn-white">Discuss Your Requirements</a>
-                        <a href="contact.html" class="btn btn-outline-light">Contact Our Team</a>
-                    </div>
-                </div>
+    <!-- Banner Start -->
+    <div class="container-fluid my-5 px-0">
+        <div class="video wow fadeInUp pb-banner" data-wow-delay="0.1s" style="background-image: linear-gradient(rgba(0, 0, 0, .55), rgba(0, 0, 0, .55)), url(https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1920&q=75&h=900);">
+            <div class="container text-center">
+                
+                <h2 class="display-6 text-white mb-4">Let's Move Your Business Forward.</h2>
+                <p class="fs-5 text-white mb-4 mx-auto" style="max-width: 820px;">Whether you require regulatory consultation, media visibility, brand promotion, talent coordination, business consultancy or logistics support, CROSSWAVE is ready to understand your requirements and explore how we can help.</p>
+                <div><a href="booking.html" class="btn btn-primary py-md-3 px-md-5 m-2">Discuss Your Requirements</a><a href="contact.html" class="btn btn-secondary py-md-3 px-md-5 m-2">Contact Our Team</a></div>
             </div>
         </div>
-    </section>
-    <!-- CTA End -->
-
-
-    <!-- Contact Preview Start -->
-    <section class="section" id="contact" aria-labelledby="contact-heading">
-        <div class="container">
-            <div class="row g-5">
-                <div class="col-lg-5 wow fadeInUp">
-                    <span class="eyebrow">Get In Touch</span>
-                    <h2 id="contact-heading" class="section-title">Let's Start a Conversation</h2>
-                    <p class="mb-4">Have a project, business requirement or service enquiry? Get in touch with CROSSWAVE INTEGRATED SERVICES LIMITED. Our team will be happy to understand your needs and discuss the appropriate next steps.</p>
-                    <ul class="contact-list mb-4">
-                        <li><i class="bi bi-geo-alt" aria-hidden="true"></i><div><strong>Office Address</strong><span class="value placeholder-value">[INSERT OFFICIAL BUSINESS ADDRESS]</span></div></li>
-                        <li><i class="bi bi-telephone" aria-hidden="true"></i><div><strong>Telephone</strong><span class="value placeholder-value">[INSERT OFFICIAL PHONE NUMBER]</span></div></li>
-                        <li><i class="bi bi-envelope" aria-hidden="true"></i><div><strong>Email</strong><span class="value placeholder-value">[INSERT OFFICIAL BUSINESS EMAIL]</span></div></li>
-                    </ul>
-                    <a href="contact.html" class="link-arrow">Visit the Contact Page <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
-                </div>
-                <div class="col-lg-7 wow fadeInUp" data-wow-delay="0.1s">
-                    <form class="form-card" data-cw-form novalidate aria-label="Service enquiry form">
-                    <div class="row g-3">
-                        <div class="col-md-6">
-                            <label class="form-label" for="home-name">Name<span class="req" aria-hidden="true">*</span></label>
-                            <input type="text" class="form-control" id="home-name" name="name" placeholder="Your full name" autocomplete="name" required>
-                            <div class="invalid-feedback">Please provide your name.</div>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label" for="home-email">Email<span class="req" aria-hidden="true">*</span></label>
-                            <input type="email" class="form-control" id="home-email" name="email" placeholder="you@company.com" autocomplete="email" required>
-                            <div class="invalid-feedback">Please enter a valid email address.</div>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label" for="home-phone">Phone Number<span class="req" aria-hidden="true">*</span></label>
-                            <input type="tel" class="form-control" id="home-phone" name="phone" placeholder="e.g. +234 …" autocomplete="tel" pattern="[0-9+()\-\s]{7,20}" required>
-                            <div class="invalid-feedback">Please enter a valid phone number.</div>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label" for="home-service">Service of Interest<span class="req" aria-hidden="true">*</span></label>
-                            <select class="form-select" id="home-service" name="service" required>
-                                <option value="" selected disabled>Select a service</option>
+        <div class="container position-relative wow fadeInUp" data-wow-delay="0.1s" style="margin-top: -6rem;">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <section id="contact" aria-labelledby="contact-heading"><div class="bg-light text-center p-4 p-md-5">
+                        <h2 id="contact-heading" class="display-6 mb-3">Let's Start a Conversation</h2>
+                        <p class="mb-4 mx-auto" style="max-width: 720px;">Have a project, business requirement or service enquiry? Get in touch with CROSSWAVE INTEGRATED SERVICES LIMITED. Our team will be happy to understand your needs and discuss the appropriate next steps.</p>
+                        <form data-cw-form novalidate aria-label="Service enquiry form">
+                            <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control border-0" id="home-name" name="name" placeholder="Name" autocomplete="name" required>
+                                    <label for="home-name">Name <span class="text-danger" aria-hidden="true">*</span></label>
+                                    <div class="invalid-feedback text-start">Please provide your name.</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control border-0" id="home-email" name="email" placeholder="Email" autocomplete="email" required>
+                                    <label for="home-email">Email <span class="text-danger" aria-hidden="true">*</span></label>
+                                    <div class="invalid-feedback text-start">Please enter a valid email address.</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="tel" class="form-control border-0" id="home-phone" name="phone" placeholder="Phone Number" autocomplete="tel" pattern="[0-9+()\-\s]{7,20}" required>
+                                    <label for="home-phone">Phone Number <span class="text-danger" aria-hidden="true">*</span></label>
+                                    <div class="invalid-feedback text-start">Please enter a valid phone number.</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <select class="form-select border-0" id="home-service" name="service" required>
+                                        <option value="" selected disabled>Select a service</option>
 <option data-key="nafdac" value="NAFDAC & Regulatory Consultation">NAFDAC & Regulatory Consultation</option>
 <option data-key="pr" value="PR, Media & Communication">PR, Media & Communication</option>
 <option data-key="digital" value="Digital Marketing & Brand Promotion">Digital Marketing & Brand Promotion</option>
@@ -574,109 +680,119 @@
 <option data-key="fashion" value="Fashion, Modeling & Talent Management">Fashion, Modeling & Talent Management</option>
 <option data-key="logistics" value="Logistics & Haulage Services">Logistics & Haulage Services</option>
 <option data-key="general" value="General Enquiry">General / Other Enquiry</option>
-                            </select>
-                            <div class="invalid-feedback">Please select a service.</div>
+                                    </select>
+                                    <label for="home-service">Service of Interest <span class="text-danger" aria-hidden="true">*</span></label>
+                                    <div class="invalid-feedback text-start">Please select a service.</div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control border-0" id="home-subject" name="subject" placeholder="Subject" required>
+                                    <label for="home-subject">Subject <span class="text-danger" aria-hidden="true">*</span></label>
+                                    <div class="invalid-feedback text-start">Please provide your subject.</div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea class="form-control border-0" id="home-message" name="message" placeholder="Message" style="height: 150px" required minlength="10"></textarea>
+                                    <label for="home-message">Message <span class="text-danger" aria-hidden="true">*</span></label>
+                                    <div class="invalid-feedback text-start">Please include a short description (at least 10 characters).</div>
+                                </div>
+                            </div>
+                            <div class="hp-field" aria-hidden="true"><label for="home-enquiry-website">Leave this field empty</label><input type="text" id="home-enquiry-website" name="_gotcha" tabindex="-1" autocomplete="off"></div>
+                            <input type="hidden" name="form" value="home-enquiry">
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">Submit Enquiry</button>
+                            </div>
                         </div>
-                        <div class="col-12">
-                            <label class="form-label" for="home-subject">Subject<span class="req" aria-hidden="true">*</span></label>
-                            <input type="text" class="form-control" id="home-subject" name="subject" placeholder="What is your enquiry about?" required>
-                            <div class="invalid-feedback">Please provide your subject.</div>
+                        <div class="form-status text-start" aria-live="polite"></div>
+                        </form>
+                        <div class="row g-3 mt-4 text-start">
+                            <div class="col-md-4"><p class="mb-1 fw-medium text-dark"><i class="fa fa-map-marker-alt text-primary me-2" aria-hidden="true"></i>Office Address</p><span class="placeholder-value">[INSERT OFFICIAL BUSINESS ADDRESS]</span></div>
+                            <div class="col-md-4"><p class="mb-1 fw-medium text-dark"><i class="fa fa-phone-alt text-primary me-2" aria-hidden="true"></i>Telephone</p><span class="placeholder-value">[INSERT OFFICIAL PHONE NUMBER]</span></div>
+                            <div class="col-md-4"><p class="mb-1 fw-medium text-dark"><i class="fa fa-envelope text-primary me-2" aria-hidden="true"></i>Email</p><span class="placeholder-value">[INSERT OFFICIAL BUSINESS EMAIL]</span></div>
                         </div>
-                        <div class="col-12">
-                            <label class="form-label" for="home-message">Message<span class="req" aria-hidden="true">*</span></label>
-                            <textarea class="form-control" id="home-message" name="message" rows="5" placeholder="Tell us briefly about your requirements" required minlength="10"></textarea>
-                            <div class="invalid-feedback">Please include a short description (at least 10 characters).</div>
-                        </div>
-                        <div class="hp-field" aria-hidden="true"><label for="home-enquiry-website">Leave this field empty</label><input type="text" id="home-enquiry-website" name="_gotcha" tabindex="-1" autocomplete="off"></div>
-                        <input type="hidden" name="form" value="home-enquiry">
-                        <div class="col-12">
-                            <button type="submit" class="btn btn-primary">Submit Enquiry <i class="bi bi-send ms-1" aria-hidden="true"></i></button>
-                        </div>
-                    </div>
-                    <div class="form-status" aria-live="polite"></div>
-                    </form>
+                        <a href="contact.html" class="btn btn-link text-primary mt-3">Visit the Contact Page <i class="fa fa-arrow-right ms-1" aria-hidden="true"></i></a>
+                    </div></section>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- Contact Preview End -->
+    </div>
+    <!-- Banner End -->
 
     </main>
 
     <!-- Footer Start -->
-    <footer class="site-footer">
-        <svg class="wave-lines" style="right:-15%;top:-10%;width:60%;opacity:.12" viewBox="0 0 800 400" fill="none" aria-hidden="true" focusable="false">
-            <path d="M0 260 C 160 180, 320 340, 480 250 S 720 160, 800 210" stroke="#00A3E0" stroke-width="2"/>
-            <path d="M0 290 C 160 210, 320 370, 480 280 S 720 190, 800 240" stroke="#00A3E0" stroke-width="1.5" opacity=".7"/>
-            <path d="M0 320 C 160 240, 320 400, 480 310 S 720 220, 800 270" stroke="#FFFFFF" stroke-width="1" opacity=".5"/>
-            <path d="M0 350 C 160 270, 320 430, 480 340 S 720 250, 800 300" stroke="#FFFFFF" stroke-width="1" opacity=".3"/>
-        </svg>
-        <div class="container position-relative">
+    <footer class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
             <div class="row g-5">
-                <div class="col-lg-4 col-md-6">
-                    <a href="index.html" class="footer-logo" aria-label="CROSSWAVE INTEGRATED SERVICES LIMITED — Home">
+                <div class="col-lg-3 col-md-6">
+                    <a href="index.html" class="footer-logo d-inline-block bg-white p-3 mb-4" aria-label="CROSSWAVE INTEGRATED SERVICES LIMITED — Home">
                         <img src="img/crosswave-logo-640.png" alt="CROSSWAVE logo" width="640" height="108" loading="lazy">
                     </a>
                     <p>CROSSWAVE INTEGRATED SERVICES LIMITED provides integrated professional solutions across regulatory consultation, public relations, digital marketing, talent management, business consultancy and logistics.</p>
-                    <p class="tagline mb-0">Connecting Businesses. Building Brands. Creating Opportunities.</p>
-                </div>
-                <div class="col-lg-2 col-md-6">
-                    <h2>Quick Links</h2>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="service.html">Our Services</a></li>
-                        <li><a href="index.html#approach">Our Approach</a></li>
-                        <li><a href="team.html">Our People &amp; Network</a></li>
-                        <li><a href="testimonial.html">Client Experience</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                    </ul>
+                    <p class="text-secondary fw-medium mb-0">Connecting Businesses. Building Brands. Creating Opportunities.</p>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h2>Our Services</h2>
-                    <ul class="footer-links">
-                        <li><a href="service.html#nafdac-regulatory" data-landing="nafdac-regulatory">NAFDAC & Regulatory Consultation</a></li>
-                        <li><a href="service.html#pr-media-communication" data-landing="pr-media-communication">PR, Media & Communication</a></li>
-                        <li><a href="service.html#digital-marketing">Digital Marketing & Brand Promotion</a></li>
-                        <li><a href="service.html#project-management">Project Management & Business Consultancy</a></li>
-                        <li><a href="service.html#fashion-modeling-talent" data-landing="fashion-modeling-talent">Fashion, Modeling & Talent Management</a></li>
-                        <li><a href="service.html#logistics-haulage">Logistics & Haulage Services</a></li>
-                    </ul>
+                    <h4 class="text-light mb-4">Quick Links</h4>
+                    <a class="btn btn-link" href="index.html">Home</a>
+                    <a class="btn btn-link" href="about.html">About Us</a>
+                    <a class="btn btn-link" href="service.html">Our Services</a>
+                    <a class="btn btn-link" href="index.html#approach">Our Approach</a>
+                    <a class="btn btn-link" href="team.html">Our People &amp; Network</a>
+                    <a class="btn btn-link" href="testimonial.html">Client Experience</a>
+                    <a class="btn btn-link" href="contact.html">Contact Us</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h2>Get In Touch</h2>
-                    <ul class="footer-contact">
-                        <li><i class="bi bi-geo-alt" aria-hidden="true"></i><span class="placeholder-value">[INSERT OFFICIAL BUSINESS ADDRESS]</span></li>
-                        <li><i class="bi bi-telephone" aria-hidden="true"></i><span class="placeholder-value">[INSERT OFFICIAL PHONE NUMBER]</span></li>
-                        <li><i class="bi bi-envelope" aria-hidden="true"></i><span class="placeholder-value">[INSERT OFFICIAL BUSINESS EMAIL]</span></li>
-                    </ul>
-                    <div class="social">
-                        <span class="is-pending" data-social="facebook" data-label="CROSSWAVE on Facebook" title="Facebook — official profile coming soon" aria-label="Facebook profile coming soon" role="img"><i class="bi bi-facebook" aria-hidden="true"></i></span>
-                        <span class="is-pending" data-social="instagram" data-label="CROSSWAVE on Instagram" title="Instagram — official profile coming soon" aria-label="Instagram profile coming soon" role="img"><i class="bi bi-instagram" aria-hidden="true"></i></span>
-                        <span class="is-pending" data-social="linkedin" data-label="CROSSWAVE on LinkedIn" title="LinkedIn — official profile coming soon" aria-label="LinkedIn profile coming soon" role="img"><i class="bi bi-linkedin" aria-hidden="true"></i></span>
-                        <span class="is-pending" data-social="x" data-label="CROSSWAVE on X (formerly Twitter)" title="X (formerly Twitter) — official profile coming soon" aria-label="X (formerly Twitter) profile coming soon" role="img"><i class="bi bi-twitter-x" aria-hidden="true"></i></span>
+                    <h4 class="text-light mb-4">Our Services</h4>
+                    <a class="btn btn-link" href="service.html#nafdac-regulatory" data-landing="nafdac-regulatory">NAFDAC & Regulatory Consultation</a>
+                    <a class="btn btn-link" href="service.html#pr-media-communication" data-landing="pr-media-communication">PR, Media & Communication</a>
+                    <a class="btn btn-link" href="service.html#digital-marketing">Digital Marketing & Brand Promotion</a>
+                    <a class="btn btn-link" href="service.html#project-management">Project Management & Business Consultancy</a>
+                    <a class="btn btn-link" href="service.html#fashion-modeling-talent" data-landing="fashion-modeling-talent">Fashion, Modeling & Talent Management</a>
+                    <a class="btn btn-link" href="service.html#logistics-haulage">Logistics & Haulage Services</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Get In Touch</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3" aria-hidden="true"></i><span class="placeholder-value">[INSERT OFFICIAL BUSINESS ADDRESS]</span></p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3" aria-hidden="true"></i><span class="placeholder-value">[INSERT OFFICIAL PHONE NUMBER]</span></p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3" aria-hidden="true"></i><span class="placeholder-value">[INSERT OFFICIAL BUSINESS EMAIL]</span></p>
+                    <div class="d-flex pt-2">
+                    <span class="btn btn-outline-light btn-social is-pending" data-social="facebook" data-label="CROSSWAVE on Facebook" title="Facebook — official profile coming soon" aria-label="Facebook profile coming soon" role="img"><i class="fab fa-facebook-f" aria-hidden="true"></i></span>
+                    <span class="btn btn-outline-light btn-social is-pending" data-social="x" data-label="CROSSWAVE on X (formerly Twitter)" title="X (formerly Twitter) — official profile coming soon" aria-label="X (formerly Twitter) profile coming soon" role="img"><i class="fab fa-twitter" aria-hidden="true"></i></span>
+                    <span class="btn btn-outline-light btn-social is-pending" data-social="linkedin" data-label="CROSSWAVE on LinkedIn" title="LinkedIn — official profile coming soon" aria-label="LinkedIn profile coming soon" role="img"><i class="fab fa-linkedin-in" aria-hidden="true"></i></span>
+                    <span class="btn btn-outline-light btn-social is-pending" data-social="instagram" data-label="CROSSWAVE on Instagram" title="Instagram — official profile coming soon" aria-label="Instagram profile coming soon" role="img"><i class="fab fa-instagram" aria-hidden="true"></i></span>
                     </div>
-                    <a href="booking.html" class="btn btn-wave btn-sm mt-4">Request a Consultation</a>
+                    <a href="booking.html" class="btn btn-primary py-2 px-4 mt-4">Request a Consultation</a>
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <div class="container d-flex flex-column flex-md-row justify-content-between gap-2">
-                <span>&copy; <span data-year>2026</span> CROSSWAVE INTEGRATED SERVICES LIMITED. All Rights Reserved.</span>
-                <span><a href="booking.html">Request a Consultation</a> &nbsp;·&nbsp; <a href="contact.html">Contact</a></span>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <span data-year>2026</span> CROSSWAVE INTEGRATED SERVICES LIMITED. All Rights Reserved.
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <a href="booking.html">Request a Consultation</a> &nbsp;·&nbsp; <a href="contact.html">Contact</a>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
     <!-- Footer End -->
 
+
     <!-- Back to Top -->
-    <a href="#main" class="back-to-top" aria-label="Back to top"><i class="bi bi-arrow-up" aria-hidden="true"></i></a>
+    <a href="#main" class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top" aria-label="Back to top"><i class="bi bi-arrow-up" aria-hidden="true"></i></a>
+
 
     <!-- JavaScript Libraries -->
     <script src="lib/jquery/jquery.min.js"></script>
     <script src="lib/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="lib/wow/wow.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
     <!-- Site configuration & behaviour -->
     <script src="js/config.js"></script>

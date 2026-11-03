@@ -1,0 +1,87 @@
+/* ==========================================================================
+   CROSSWAVE additions
+   Small components the original template does not include. Everything here
+   uses the template's own variables (--primary, --secondary, --light, --dark)
+   so the site keeps the template's look.
+   ========================================================================== */
+
+/* Back to top: fades in after scrolling (the template's display:none is overridden by .btn-lg-square) */
+.back-to-top { opacity: 0; visibility: hidden; transition: opacity .5s, visibility .5s; }
+.back-to-top.show { opacity: 1; visibility: visible; }
+
+/* Logo */
+.brand-logo { height: 38px; width: auto; display: block; }
+.footer-logo img { height: 28px; width: auto; display: block; }
+@media (max-width: 991.98px) { .brand-logo { height: 30px; } }
+
+/* Header call-to-action block (replaces the template's phone block) */
+.nav-cta { transition: .5s; }
+.nav-cta:hover { background: var(--dark) !important; }
+
+/* Hero carousel: let the slide grow with its content so text is never cut off */
+.header-carousel .owl-carousel-item { min-height: 650px; }
+.header-carousel .owl-carousel-item img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.header-carousel .owl-carousel-item > .position-absolute { position: relative !important; min-height: 650px; padding: 5rem 0; }
+@media (max-width: 768px) {
+    .header-carousel .owl-carousel-item,
+    .header-carousel .owl-carousel-item > .position-absolute { min-height: 500px; }
+    .header-carousel .owl-carousel-item > .position-absolute { padding: 3rem 0; }
+    .header-carousel .owl-nav { display: none; }
+    .hero-values { gap: .5rem !important; flex-direction: column; }
+}
+
+/* Image frames */
+.service-item-top .img-box { height: 240px; }
+.service-item-top .img-box img { object-fit: cover; }
+.service-carousel img { height: 200px; object-fit: cover; }
+.about-img-1 { object-fit: cover; padding: 0 0 50px 100px; }
+.about-img-2 { object-fit: cover; }
+@media (max-width: 575.98px) { .about-img-1 { padding: 0 0 40px 40px; } }
+.complementary-grid img { height: 180px; object-fit: cover; }
+
+/* If a remote photograph cannot load, show a branded panel instead of a broken image */
+.img-fallback, .owl-carousel-item.img-fallback { background: linear-gradient(135deg, var(--primary), var(--dark)); }
+img.is-broken { visibility: hidden; }
+
+/* Rotated label panel */
+.container-fluid .bg-primary.w-100.h-100 { overflow: hidden; }
+
+/* Banner ("video" section) without the play button */
+.video.py-banner { padding: 6rem 0; }
+.video.pb-banner { padding: 7rem 0 12rem 0; }
+
+/* Interactive tiles */
+.industry-item, .quick-link, .step-item { transition: .5s; }
+.industry-item:hover { background: var(--primary) !important; }
+.industry-item:hover h3 { color: #FFFFFF; }
+.quick-link:hover { background: var(--primary) !important; }
+.quick-link:hover i, .quick-link:hover span { color: #FFFFFF !important; }
+
+/* Notices */
+.disclaimer { border-left: 5px solid var(--primary); }
+.placeholder-value { font-family: SFMono-Regular, Menlo, Consolas, monospace; font-size: .85em; color: #8a5a00; background: #fff3d6; padding: .05rem .35rem; }
+.footer .placeholder-value { background: rgba(255, 255, 255, .1); color: #ffd98a; }
+.map-placeholder { border: 2px dashed #d5ddf2; }
+.map-embed iframe { width: 100%; height: 300px; border: 0; display: block; }
+
+/* Social icons stay inactive until official URLs are configured in js/config.js */
+.is-pending { opacity: .45; cursor: not-allowed; }
+
+/* Forms */
+.form-floating > .form-control, .form-floating > .form-select { height: 58px; }
+.form-floating > textarea.form-control { height: auto; }
+.was-validated .form-control:invalid, .was-validated .form-select:invalid { border: 1px solid #dc3545 !important; }
+.hp-field { position: absolute !important; left: -10000px !important; width: 1px; height: 1px; overflow: hidden; }
+.form-status { display: none; padding: 1rem 1.25rem; margin-top: 1.25rem; font-size: .95rem; }
+.form-status.show { display: flex; gap: .75rem; }
+.form-status.is-success { background: #e8f7ef; color: #14532d; border: 1px solid #b7e4c7; }
+.form-status.is-error { background: #fdecea; color: #7f1d1d; border: 1px solid #f5c2c0; }
+.form-status.is-info { background: #fff6e0; color: #6b4600; border: 1px solid #f3d999; }
+
+/* Accessibility */
+:focus-visible { outline: 3px solid var(--secondary); outline-offset: 2px; }
+section, [id] { scroll-margin-top: 90px; }
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .wow { visibility: visible !important; }
+}

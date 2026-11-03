@@ -2,7 +2,7 @@
 
 *Connecting Businesses. Building Brands. Creating Opportunities.*
 
-Static, fully responsive corporate website built with HTML5, CSS3, Bootstrap 5, jQuery and WOW.js. No build step is required.
+Static, fully responsive corporate website built on the original template's theme (HTML5, CSS3, Bootstrap 5, jQuery, Owl Carousel, WOW.js, Font Awesome). No build step is required.
 
 ## Run locally
 
@@ -70,7 +70,10 @@ The template already uses `../` paths and the shared header and footer.
 | `favicon.ico`, `favicon.png`, `apple-touch-icon.png` | Browser icons cut from the logo's wave emblem |
 | `og-image.jpg` | 1200×630 social-sharing image |
 
-Brand colours are defined as CSS variables at the top of `css/style.css` (`--cw-blue #0750A5`, `--cw-wave #00A3E0`, `--cw-navy #102B50`, `--cw-mist #F3F7FC`, `--cw-grey #65748B`).
+## Styling
+
+- `css/style.css` is the original template stylesheet. The only change is that its three plumbing background photos now point to CROSSWAVE imagery. Theme colours are its `--primary`, `--secondary`, `--light` and `--dark` variables.
+- `css/crosswave.css` holds the few components the template does not include (logo sizing, the regulatory disclaimer, form status messages, contact placeholders, inactive social icons, image fallback).
 
 ## Photography
 
@@ -78,7 +81,7 @@ Section photography is loaded from Unsplash (free to use under the Unsplash Lice
 
 ## Libraries (`lib/`)
 
-Bootstrap 5.0.2 JS bundle, jQuery 3.7.1, Bootstrap Icons 1.11.3, WOW.js, Animate.css and jQuery Easing are all stored locally. Only Google Fonts (Manrope and Inter) and the photographs load from external sources.
+Bootstrap 5.0.2 JS bundle, jQuery 3.7.1, Owl Carousel, WOW.js, Animate.css, jQuery Easing, Font Awesome 5.10.0 and Bootstrap Icons 1.11.3 are all stored locally. Only Google Fonts (Roboto and Inter, as in the template) and the photographs load from external sources.
 
 ## Licence notice
 
