@@ -130,6 +130,12 @@
         });
     }
 
+    // Pre-fill the email field from ?email= (sent by the React hero's quick-start form)
+    var presetEmail = params.get("email");
+    if (presetEmail) {
+        $("form[data-cw-form] input[type='email']").first().val(presetEmail);
+    }
+
     /* ---- Enquiry forms ---------------------------------------------------
        Validates required fields, then submits to CW_CONFIG.formEndpoint.
        Feedback is always truthful: success is only shown when the endpoint
